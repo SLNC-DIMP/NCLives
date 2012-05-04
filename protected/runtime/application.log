@@ -1,0 +1,50 @@
+2012/05/03 16:31:55 [error] [exception.CException] exception 'CException' with message 'Alias "ext.bootstrap.components.Bootstrap" is invalid. Make sure it points to an existing PHP file.' in /Applications/MAMP/htdocs/nclives/framework/YiiBase.php:318
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/YiiBase.php(198): YiiBase::import('ext.bootstrap.c...', true)
+#1 /Applications/MAMP/htdocs/nclives/framework/base/CModule.php(387): YiiBase::createComponent(Array)
+#2 /Applications/MAMP/htdocs/nclives/framework/base/CModule.php(493): CModule->getComponent('bootstrap')
+#3 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(146): CModule->preloadComponents()
+#4 /Applications/MAMP/htdocs/nclives/framework/YiiBase.php(127): CApplication->__construct('/Applications/M...')
+#5 /Applications/MAMP/htdocs/nclives/framework/YiiBase.php(100): YiiBase::createApplication('CWebApplication', '/Applications/M...')
+#6 /Applications/MAMP/htdocs/nclives/index.php(13): YiiBase::createWebApplication('/Applications/M...')
+#7 {main}
+REQUEST_URI=/nclives/index.php?r=site/login
+---
+2012/05/03 16:33:13 [error] [exception.CException] exception 'CException' with message 'Alias "ext.bootstrap.components.bootstrap" is invalid. Make sure it points to an existing PHP file.' in /Applications/MAMP/htdocs/nclives/framework/YiiBase.php:318
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/YiiBase.php(198): YiiBase::import('ext.bootstrap.c...', true)
+#1 /Applications/MAMP/htdocs/nclives/framework/base/CModule.php(387): YiiBase::createComponent(Array)
+#2 /Applications/MAMP/htdocs/nclives/framework/base/CModule.php(493): CModule->getComponent('bootstrap')
+#3 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(146): CModule->preloadComponents()
+#4 /Applications/MAMP/htdocs/nclives/framework/YiiBase.php(127): CApplication->__construct('/Applications/M...')
+#5 /Applications/MAMP/htdocs/nclives/framework/YiiBase.php(100): YiiBase::createApplication('CWebApplication', '/Applications/M...')
+#6 /Applications/MAMP/htdocs/nclives/index.php(13): YiiBase::createWebApplication('/Applications/M...')
+#7 {main}
+REQUEST_URI=/nclives/index.php?r=site/login
+---
+2012/05/04 09:17:03 [error] [exception.CException] exception 'CException' with message 'Property "CHttpRequest.name" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/protected/views/layouts/main.php(26): CComponent->__get('name')
+#1 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#3 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(77): CBaseController->renderFile('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate('<div id="conten...')
+#5 /Applications/MAMP/htdocs/nclives/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput('<div id="conten...')
+#6 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(207): COutputProcessor->run()
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#8 /Applications/MAMP/htdocs/nclives/protected/views/layouts/column1.php(5): CBaseController->endContent()
+#9 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(785): CBaseController->renderFile('/Applications/M...', Array, true)
+#12 /Applications/MAMP/htdocs/nclives/protected/controllers/SiteController.php(92): CController->render('login', Array)
+#13 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(50): SiteController->actionLogin()
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#15 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#16 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('login')
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('site/login')
+#19 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/nclives/index.php/site/login
+---
