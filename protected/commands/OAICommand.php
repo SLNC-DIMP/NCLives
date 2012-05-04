@@ -1,24 +1,30 @@
 <?php
 class OAICommand extends CConsoleCommand {
+	protected $sets;
 	private $base_oai_url = 'http://archive.org/services/oai.php?';
-	private $base_cdm_url;
 	
 	public function __construct() {
 		$this->sets = array('ncgovdocs', 'asgii', 'statelibrarynorthcarolina');
 	}
 	
+	protected function writeIdentifier(array $values) {
+		$sql = "INSERT into identifiers(ia_identifier, datestamp) VALUES(?, ?)";
+		Yii::app()->db->createCommand($sql)
+			->execute($values);
+	}
+	
+	protected function updateIdentifier(array $values) {
+		$sql = "UPDATE identifiers SET WHERE id = ?";
+		Yii::app()->db->createCommand($sql)
+			->execute($values);
+	}
+	
 	protected function getIdentifiersList() {
-		$sql = "SELECT id, identifier FROM identifiers WHERE processed = ?";
+		$sql = "SELECT id, ia_identifier FROM identifiers";
 		$query = Yii::app()->db->createCommand($sql)
 			->queryAll();
 		
 		return $query;
-	}
-	
-	protected function writeIdentifier($identifier) {
-		$sql = "INSERT into identifiers(identifier, datestamp) VALUES(?, ?)";
-		Yii::app()->db->createCommand($sql)
-			->execute(array($identifier));
 	}
 	
 	/**
@@ -26,9 +32,9 @@ class OAICommand extends CConsoleCommand {
 	* If so it is appended to the base url or overwrites the previous token depending on the context
 	* Then makes a call to grab the next batch of identifiers
 	* @param $records
+	* @param $url 
 	*/
-	protected function resume($records) {
-		$url = $this->base_oai_url . "verb=ListIdentifiers";
+	protected function resume(SimpleXMLElement $records, $url) {
 		if(isset($records->resumptionToken)) {
 			if(!preg_match('/resumptionToken/i', $url)) {
 				$url = $url . '&resumptionToken=' . $records->resumptionToken;
@@ -40,25 +46,18 @@ class OAICommand extends CConsoleCommand {
 	}
 	
 	/**
-	* @param $set IA collection set name
+	* @param $url
 	*/
-	protected function getIdentifiers($set) {
-		$url = $this->base_oai_url . "verb=ListIdentifiers&set=collection:$set&metadataPrefix=oai_dc";
+	protected function getIdentifiers($url) {
 		$oai_records = simplexml_load_file($url);
 		
 		foreach($oai_records as $records) {
 			foreach($records as $record) {
-				$set_info = array();
-				foreach($record->setSpec as $set) {
-					$set_info[] = $set;
-				}
-				$sets = implode(',', $set_info); 
-				fputcsv($fh, array($record->identifier, $record->datestamp, $sets));
+				$this->writeIdentifier(array($record->identifier, $record->datestamp));
 			}
 		}
-		fclose($fh);
 		
-		$this->resume($records);
+		$this->resume($records, $url);
 	} 
 	
 	/**
@@ -83,11 +82,13 @@ class OAICommand extends CConsoleCommand {
 	
 	public function actionIdentifiers() {
 		foreach($this->sets as $set) {
-			$this->getIdentifiers($set);
+			$url = $this->base_oai_url . "verb=ListIdentifiers&set=collection:$set&metadataPrefix=oai_dc";
+			$this->getIdentifiers($url);
 		}		
 	}
 	
 	public function actionRecords() {
+		$identifiers = $this->getIdentifiersList();
 		foreach($identifiers as $identity) {
 			$this->getRecords($identity['identifier']);
 		}

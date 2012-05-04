@@ -36,7 +36,7 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+			'allowAutoLogin'=>false,
 		),
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
@@ -46,6 +46,10 @@ return array(
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
+		),
+		// adding in CSRF protection component
+		'request' => array(
+			'enableCsrfValidation'=>true
 		),
 		/*
 		'db'=>array(
@@ -88,5 +92,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+		'baseCDMUrl'=>'http://your.cdm.site.gov'
 	),
 );
