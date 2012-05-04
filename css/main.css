@@ -197,3 +197,8 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+#home_search {
+	height: 35px;
+	font-size: 25px;
+}
