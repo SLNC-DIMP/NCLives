@@ -5,13 +5,33 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Console Application',
+	'preload'=>array('log'),
+ 
+    'import'=>array(
+        'application.components.*',
+        'application.models.*',
+	),
 	// application components
 	'components'=>array(
-		'db'=>array(
+		'log'=>array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
+                array(
+                    'class'=>'CFileLogRoute',
+                    'logFile'=>'cron.log',
+                    'levels'=>'error, warning',
+                ),
+                array(
+                    'class'=>'CFileLogRoute',
+                    'logFile'=>'cron_trace.log',
+                    'levels'=>'trace',
+                ),
+            ),
+        ),
+	 /*	'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
+		), */
 		// uncomment the following to use a MySQL database
-		/*
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
 			'emulatePrepare' => true,
@@ -19,6 +39,5 @@ return array(
 			'password' => '',
 			'charset' => 'utf8',
 		),
-		*/
 	),
 );
