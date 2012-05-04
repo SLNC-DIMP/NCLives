@@ -40,4 +40,8 @@ return array(
 			'charset' => 'utf8',
 		),
 	),
+	'params'=>array(
+		'adminEmail'=>'webmaster@example.com',
+		'baseCDMUrl'=>'http://your.cdm.site.gov'
+	),
 );
