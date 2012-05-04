@@ -1,31 +1,24 @@
 <?php
 class OAICommand extends CConsoleCommand {
+	private $base_oai_url = 'http://archive.org/services/oai.php?';
+	private $base_cdm_url;
+	
 	public function __construct() {
 		$this->sets = array('ncgovdocs', 'asgii', 'statelibrarynorthcarolina');
 	}
 	
 	protected function getIdentifiersList() {
-		$sql = "SELECT id, identifiers FROM identifiers WHERE processed = ?";
+		$sql = "SELECT id, identifier FROM identifiers WHERE processed = ?";
 		$query = Yii::app()->db->createCommand($sql)
 			->queryAll();
+		
+		return $query;
 	}
 	
-	protected function getHeaders() {
-		$headers = '';
-		if(!file_exists('records.csv')) {
-			$headers = array('Identifier', 'Date', 'Set');
-		}
-		
-		return $headers;
-	}
-	
-	protected function setHeaders($headers) {
-		$fh = fopen('records.csv', 'ab');
-		if(is_array($headers)) {
-			fputcsv($fh, $headers);
-		}
-		
-		return $fh;
+	protected function writeIdentifier($identifier) {
+		$sql = "INSERT into identifiers(identifier, datestamp) VALUES(?, ?)";
+		Yii::app()->db->createCommand($sql)
+			->execute(array($identifier));
 	}
 	
 	/**
@@ -35,7 +28,7 @@ class OAICommand extends CConsoleCommand {
 	* @param $records
 	*/
 	protected function resume($records) {
-		$url = "http://archive.org/services/oai.php?verb=ListIdentifiers";
+		$url = $this->base_oai_url . "verb=ListIdentifiers";
 		if(isset($records->resumptionToken)) {
 			if(!preg_match('/resumptionToken/i', $url)) {
 				$url = $url . '&resumptionToken=' . $records->resumptionToken;
@@ -46,10 +39,12 @@ class OAICommand extends CConsoleCommand {
 		}
 	}
 	
-	protected function getIdentifiers($url) {
+	/**
+	* @param $set IA collection set name
+	*/
+	protected function getIdentifiers($set) {
+		$url = $this->base_oai_url . "verb=ListIdentifiers&set=collection:$set&metadataPrefix=oai_dc";
 		$oai_records = simplexml_load_file($url);
-		
-		$fh = $this->setHeaders($this->getHeaders());
 		
 		foreach($oai_records as $records) {
 			foreach($records as $record) {
@@ -67,12 +62,12 @@ class OAICommand extends CConsoleCommand {
 	} 
 	
 	/**
-	* IA uses namepaced Dublin Core XML for individual records.  So php simplexml won't work here.
+	* IA uses namepaced Dublin Core XML for individual records.  So php simple_xml won't work here.
 	* See http://www.itsalif.info/content/php-5-xmlreader-reading-xml-namespace-part-2
 	* @param $id_string IA identifier for a particular record
 	*/
 	protected function getRecord($id_string) {
-		$request_url = "http://archive.org/services/oai.php?verb=GetRecord&metadataPrefix=oai_dc&identifier=$id_string";
+		$request_url = $this->base_oai_url . "verb=GetRecord&metadataPrefix=oai_dc&identifier=$id_string";
 		$xml = new XMLReader();
 		$xml->open($request_url);
 		
@@ -88,8 +83,7 @@ class OAICommand extends CConsoleCommand {
 	
 	public function actionIdentifiers() {
 		foreach($this->sets as $set) {
-			$url = "http://archive.org/services/oai.php?verb=ListIdentifiers&set=collection:$set&metadataPrefix=oai_dc";
-			$this->getIdentifiers($url);
+			$this->getIdentifiers($set);
 		}		
 	}
 	
