@@ -5,7 +5,6 @@ class OAICommand extends CConsoleCommand {
 	
 	public function __construct() {
 		$this->sets = array('ncgovdocs', 'asgii', 'statelibrarynorthcarolina');
-		$this->metadata = array('marc.xml', 'meta.xml');
 	}
 	
 	protected function writeIdentifier(array $values) {
