@@ -1,26 +1,26 @@
 <?php
 class OAICommand extends CConsoleCommand {
-	protected $sets;
+	protected $ai_sets;
 	private $base_oai_url = 'http://archive.org/services/oai.php?';
-	
+
 	public function __construct() {
-		$this->sets = array('ncgovdocs', 'asgii', 'statelibrarynorthcarolina');
+		$this->ai_sets = array('ncgovdocs', 'asgii', 'statelibrarynorthcarolina');
 	}
 	
 	protected function writeIdentifier(array $values) {
-		$sql = "INSERT into identifiers(ia_identifier, base_identifier, datestamp) VALUES(?, ?, ?)";
+		$sql = "INSERT into ia_records(ia_identifier, base_id, datestamp) VALUES(?, ?, ?)";
 		Yii::app()->db->createCommand($sql)
 			->execute($values);
 	}
 	
 	protected function updateIdentifier(array $values) {
-		$sql = "UPDATE identifiers SET url_link = ? WHERE id = ?";
+		$sql = "UPDATE ia_records SET url_link = ? WHERE id = ?";
 		Yii::app()->db->createCommand($sql)
 			->execute($values);
 	}
 	
 	protected function getIdentifiersList() {
-		$sql = "SELECT id, ia_identifier FROM identifiers WHERE url_link IS NULL";
+		$sql = "SELECT id, ia_identifier FROM ia_records WHERE url_link IS NULL";
 		$query = Yii::app()->db->createCommand($sql)
 			->queryAll();
 		
@@ -114,7 +114,7 @@ class OAICommand extends CConsoleCommand {
 	}
 	
 	public function actionIdentifiers() {
-		foreach($this->sets as $set) {
+		foreach($this->ai_sets as $set) {
 			$url = $this->base_oai_url . "verb=ListIdentifiers&set=collection:$set&metadataPrefix=oai_dc";
 			$this->getIdentifiers($url); // oai:archive.org:illustratedhandb00sepa
 		}		

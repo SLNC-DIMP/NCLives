@@ -6,5 +6,4 @@ $this->breadcrumbs=array(
 ?>
 <h1>About</h1>
 
-<p>This is a "static" page. You may change the content of this page
-by updating the file <tt><?php echo __FILE__; ?></tt>.</p>
+<p>The State Library and State Archives of North Carolina's digital collections are scattered across multiple software platforms with seperate search interfaces that can't discover content located on other platforms.  This site consolidates and makes searchable all Department of Cultural Resources content on one site.</p>

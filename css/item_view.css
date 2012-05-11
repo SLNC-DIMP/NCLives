@@ -1,0 +1,37 @@
+h1 {
+text-align:left;
+}
+
+h1, h3 {
+padding-bottom: 15px;
+}
+
+h3 {
+clear: both;
+}
+
+#viewItem {
+border: 5px solid #CCC;
+display:inline;
+width: 500px;
+background-color:#CCC;
+border-radius: 5px;
+}
+
+#viewOptions, #viewItem {
+float:left;
+}
+
+#viewItem li {
+list-style-type:none;
+display: inline;
+padding: 5px 0 5px 15px;
+}
+
+table {
+text-align:justify;
+border: 1px solid #CCC;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-image: 5px;
+}
