@@ -7,6 +7,7 @@
  * @property integer $id
  * @property string $identifier
  * @property string $base_id
+ * @property string $image_path
  * @property integer $fulltext_available
  * @property string $url_link
  * @property string $datestamp
@@ -81,6 +82,7 @@ class IaRecords extends CActiveRecord
 			'id' => 'ID',
 			'identifier' => 'Identifier',
 			'base_id' => 'Base',
+			'image_path' => 'image path',
 			'fulltext_available' => 'Fulltext Available',
 			'url_link' => 'Url Link',
 			'datestamp' => 'Datestamp',
@@ -112,6 +114,7 @@ class IaRecords extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('identifier',$this->identifier,true);
 		$criteria->compare('base_id',$this->base_id,true);
+		$criteria->compare('image_path',$this->image_path,true);
 		$criteria->compare('fulltext_available',$this->fulltext_available);
 		$criteria->compare('url_link',$this->url_link,true);
 		$criteria->compare('datestamp',$this->datestamp,true);

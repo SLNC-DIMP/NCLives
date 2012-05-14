@@ -24,12 +24,6 @@ class IaMetaCommand extends CConsoleCommand {
 		return Yii::app()->db->lastInsertID;
 	}
 	
-	protected function updateText($file_id) {
-		$sql = "UPDATE ia_records SET fulltext_available = ? WHERE id = ?";
-		Yii::app()->db->createCommand($sql)
-			->execute(array(1, $file_id));
-	}
-	
 	protected function writeMetadata(array $fields) {
 		$sql = "UPDATE ia_records SET " . $this->format->formatQuery($fields) . " WHERE id = ?";
 			
@@ -38,6 +32,19 @@ class IaMetaCommand extends CConsoleCommand {
 			
 		return $query;
 	}
+	
+	protected function updateText($file_id) {
+		$sql = "UPDATE ia_records SET fulltext_available = ? WHERE id = ?";
+		Yii::app()->db->createCommand($sql)
+			->execute(array(1, $file_id));
+	}
+	
+	protected function updateImage(array $values) {
+		$sql = "UPDATE ia_records SET image_path = ? WHERE id = ?";
+		Yii::app()->db->createCommand($sql)
+			->execute($values);
+	}
+	
 	
 	/**
 	* Grabs IA file full text for processing
@@ -104,6 +111,19 @@ class IaMetaCommand extends CConsoleCommand {
 		}
 	}
 	
+	protected function getGif($file, $base_id, $file_id) {
+		$gif = imagecreatefromgif($file);
+		if($gif) {
+			$path = 'images/' . $base_id . '.png';
+			$png = imagepng($gif, '../'.$path);
+			if($png) {
+				$this->updateImage(array($path, $file_id));
+				echo $path . " created\r\n";
+			}
+			@imagedestroy($gif);
+		}
+	}
+	
 	public function actionIaMeta() {
 		$files = $this->getPaths('Title');
 		if(empty($files)) { exit; }
@@ -127,6 +147,16 @@ class IaMetaCommand extends CConsoleCommand {
 			} else {
 				echo "Couldn't get text file for: " . $text['id'] . "\r\n";
 			}
+		}
+	}
+	
+	public function actionIaGif() {
+		$images = $this->getPaths('image_path');
+		if(empty($images)) { exit; }
+		
+		foreach($images as $image) {
+			$path = 'http://archive.org/download/' . $image['base_id'] . '/' . $image['base_id'] . '.gif';
+			$gif = $this->getGif($path, $image['base_id'], $image['id']);
 		}
 	}
 }

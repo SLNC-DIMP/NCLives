@@ -1,10 +1,21 @@
+<?php
+$css = Yii::app()->getClientScript();
+$css->registerCssFile(Yii::app()->baseUrl.'/css/item_view.css');
+?>
 <div class="view">
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?php echo CHtml::image(Yii::app()->request->baseUrl . '/' . $data->image_path, $data->Title, array('class'=>'gif_format')); ?>
+<!--	<img style="float:left; padding: 0 10px 10px 0" src="http://archive.org/download/<?php echo $data->base_id . '/' . $data->base_id . '.gif'; ?>" alt="<?php echo $data->Title; ?>"> -->
+    <br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Title')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->Title),array('view','id'=>$data->id)); ?>
+	<br />
+<!--	
+    <b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
 	<br />
 
-<!--	<b><?php echo CHtml::encode($data->getAttributeLabel('identifier')); ?>:</b>
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('identifier')); ?>:</b>
 	<?php echo CHtml::encode($data->identifier); ?>
 	<br />
 
@@ -22,10 +33,6 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('datestamp')); ?>:</b>
 	<?php echo CHtml::encode($data->datestamp); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Title')); ?>:</b>
-	<?php echo CHtml::encode($data->Title); ?>
 	<br />
  
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Volume')); ?>:</b>

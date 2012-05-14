@@ -35,3 +35,8 @@ border-radius: 5px;
 -moz-border-radius: 5px;
 -webkit-border-image: 5px;
 }
+
+.gif_format {
+float:left; 
+padding: 0 10px 10px 0;
+}

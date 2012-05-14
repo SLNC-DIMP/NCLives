@@ -7,7 +7,7 @@ class CdmMetaCommand extends CConsoleCommand {
 	}
 	
 	protected function getCdm() {
-		$sql = "SELECT * FROM cdm_records WHERE id > 2884";
+		$sql = "SELECT * FROM cdm_records WHERE Title IS NULL";
 		$images = Yii::app()->db->createCommand($sql)
 			->queryAll();
 		
