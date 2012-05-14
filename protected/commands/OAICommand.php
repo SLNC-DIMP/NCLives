@@ -1,10 +1,13 @@
 <?php
 class OAICommand extends CConsoleCommand {
-	protected $ai_sets;
-	private $base_oai_url = 'http://archive.org/services/oai.php?';
-
-	public function __construct() {
-		$this->ai_sets = array('ncgovdocs', 'asgii', 'statelibrarynorthcarolina');
+	private $ai_sets = array('ncgovdocs', 'asgii', 'statelibrarynorthcarolina');
+	private $base_ai_url = 'http://archive.org/services/oai.php?';
+	private $base_cdm_url = 'http://cdm16062.contentdm.oclc.org/oai/oai.php?';
+	
+	protected function writeSets(array $values) {
+		$sql = "INSERT into oai_sets(set_id, set_name) VALUES(?, ?)";
+		Yii::app()->db->createCommand($sql)
+			->execute($values);
 	}
 	
 	protected function writeIdentifier(array $values) {
@@ -102,7 +105,7 @@ class OAICommand extends CConsoleCommand {
 		} catch(Exception $e) {
 			fputcsv($fh, array($request_url, $e->getMessage()));
 			$presumed_url = 'http://archive.org/details/' . $id_string;
-			$this->updateIdentifier(array($presumed_url, $db_id));
+			$this->updateIdentifier(array($presumed_url, $db_id, date('Y-m-d')));
 		}
 		fclose($fh);
 	}
@@ -113,7 +116,32 @@ class OAICommand extends CConsoleCommand {
 		return preg_match('/<dc:description.*<.*<.dc:description>/i', $contents);
 	}
 	
+	protected function getSets($base_url) {
+		$url = $base_url . 'verb=ListSets';
+		$oai_records = simplexml_load_file($url);
+		
+		foreach($oai_records as $records) {
+			foreach($records as $record) {
+				if(isset($record->setSpec) && ($record->setName != 'Selections from Print Collections' || $record->setName != 'State Publications')) {
+					$this->writeSets(array($record->setSpec, $record->setName));
+					echo $record->setSpec . "\n";
+				}
+			}
+		}
+	}
+	
+	public function actionSets() {
+		// cdm sets
+		$this->getSets($this->base_cdm_url);
+		
+		// ai sets
+		foreach($this->ai_sets as $set) {
+			 $this->writeSets(array($set, $set));
+		}
+	}
+	
 	public function actionIdentifiers() {
+		$sets = $this->readSets('ia');
 		foreach($this->ai_sets as $set) {
 			$url = $this->base_oai_url . "verb=ListIdentifiers&set=collection:$set&metadataPrefix=oai_dc";
 			$this->getIdentifiers($url); // oai:archive.org:illustratedhandb00sepa
@@ -130,5 +158,5 @@ class OAICommand extends CConsoleCommand {
 		foreach($identifiers as $identity) {
 			$this->getRecord($identity['id'], $identity['ia_identifier']);
 		}
-	}
+	}	
 }

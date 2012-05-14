@@ -1,16 +1,10 @@
 <?php
-// Requires PEAR packages Structures_LinkedList and File_MARC
-// See link for documentation: http://pear.php.net/manual/en/package.fileformats.file-marc.reading.php
-require_once 'File/MARCXML.php';
-
-class MetadataCommand extends CConsoleCommand {
-	protected $marc;
+class IaMetaCommand extends CConsoleCommand {
 	protected $meta_url = 'http://www.archive.org/download/';
 	protected $text_url = 'http://archive.org/details/';
 	protected $format;
 	
 	public function __construct() {
-	//	$this->marc = new File_MARCXML($this->base_url . $file . '/' . $file . '_marc.xml', File_MARC::SOURCE_FILE);
 		$this->format = new Format;
 	}
 	
@@ -46,7 +40,10 @@ class MetadataCommand extends CConsoleCommand {
 	}
 	
 	/**
+	* Grabs IA file full text for processing
 	* Files too big to grab with file_get_contents()
+	* @param $identifier
+	* @return string
 	*/
 	protected function downloadText($identifier) {
 		$url = 'http://archive.org/download/' . $identifier . '/' . $identifier . '_djvu.txt';
@@ -86,7 +83,7 @@ class MetadataCommand extends CConsoleCommand {
 				'Title'         => $xml->title, 
 				'Volume'        => $xml->volume, 
 				'Creator'       => $xml->creator, 
-				'Subject'       => $this->commaReplace($subjects), 
+				'Subject'       => $this->format->commaReplace($subjects), 
 				'Publisher'     => $xml->publisher, 
 				'Pub_Date'      => $xml->date, 
 				'Language'      => $xml->language, 
@@ -104,10 +101,6 @@ class MetadataCommand extends CConsoleCommand {
 		} catch(Exception $e) {
 			echo $e->getMessage() . "\r\n";
 		}
-	}
-	
-	public function actionMarcMeta() {
-	
 	}
 	
 	public function actionIaMeta() {

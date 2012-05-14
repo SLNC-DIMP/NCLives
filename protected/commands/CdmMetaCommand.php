@@ -1,26 +1,20 @@
 <?php
-class CDMCommand extends CConsoleCommand {
+class CdmMetaCommand extends CConsoleCommand {
 	protected $format;
 	
 	public function __construct() {
 		$this->format = new Format;
 	}
 	
-	protected function writeImage(array $values) {
-		$sql = "INSERT into cdm_records(collection, pointer) VALUES(?, ?)";
-		Yii::app()->db->createCommand($sql)
-			->execute($values);
-	}
-	
-	protected function getImages() {
-		$sql = "SELECT * FROM cdm_records";
+	protected function getCdm() {
+		$sql = "SELECT * FROM cdm_records WHERE base_id IS NOT NULL";
 		$images = Yii::app()->db->createCommand($sql)
 			->queryAll();
 		
 		return $images;
 	}
 	
-	protected function updateImage(array $values) {
+	protected function updateCdm(array $values) {
 		$sql = "UPDATE cdm_records SET " . $this->format->formatQuery($values) . " WHERE id = ?";
 		$updated = Yii::app()->db->createCommand($sql)
 			->execute(array_values($values));
@@ -32,8 +26,9 @@ class CDMCommand extends CConsoleCommand {
 	* Format can be json or xml
 	* getItemInfo
 	*/
-	protected function getImageInfo($record, $file_id) {
-		$url = Yii::app()->params['baseCDMUrl'] . 'dmGetItemInfo' .  $record['collection'] . '/' . $record['pointer'] . '/json';
+	protected function getCdmInfo($record, $file_id) {
+		$url_suffix = explode('/', $record['base_id']);
+		$url = Yii::app()->params['baseCDMUrl'] . 'dmGetItemInfo/' .  $url_suffix[0] . '/' . $url_suffix[1] . '/json';
 		
 		if($results = file_get_contents($url)) {
 			$file = json_decode($results, true);
@@ -74,37 +69,17 @@ class CDMCommand extends CConsoleCommand {
 		return $metadata;
 	}
 	
-	/**
-	* query format http://CdmServer.com:port/dmwebservices/index.php?q=dmQuery/alias/searchstrings/fields/sortby/maxrecs/start/supress/docptr/suggest/facets/format
-	*/
-	public function actionGetImages() {
-		$url = Yii::app()->params['baseCDMUrl'] . 'dmQuery/all/type^image^all^and/title/title/5000/0/0/0/0/json';
-		if($results = file_get_contents($url)) {
-			$files = json_decode($results, true);
 	
-			foreach($files as $file) {
-				foreach($file as $entry) {
-					if(isset($entry['collection'])) {
-						$this->writeImage(array($entry['collection'],  $entry['pointer']));
-						echo $entry['collection'] . ', ' . $entry['pointer'] . "\r\n";
-					}
-				}
-			}  
-		} else { 
-			echo "Can't connect to CDM images url\n"; 
-		} 
-	} 
-	
-	public function actionGetImageMeta() {
-		$images = $this->getImages();
-		if(empty($images)) { echo "No images to grab\r\n"; exit; }
+	public function actionGetCdmMeta() {
+		$records = $this->getCdm();
+		if(empty($records)) { echo "No records to grab\r\n"; exit; }
 		
-		foreach($images as $image) {
-			$metadata = $this->getImageInfo($image, $image['id']);
-			if($this->updateImage($metadata)) {
-				echo $image['id'] . " updated\r\n";
+		foreach($records as $record) {
+			$metadata = $this->getCdmInfo($record, $record['id']);
+			if($this->updateCdm($metadata)) {
+				echo $record['id'] . " updated\r\n";
 			} else {
-				echo "Couldn't update " . $image['id'] . "\r\n";
+				echo "Couldn't update " . $record['id'] . "\r\n";
 			}
 		}
 	}

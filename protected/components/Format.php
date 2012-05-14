@@ -10,7 +10,7 @@ class Format {
 		return $this->commaReplace($field_values);
 	}
 		
-	protected function commaReplace($string) {
+	public function commaReplace($string) {
 		return substr_replace($string, '', -1);
 	}
 }
