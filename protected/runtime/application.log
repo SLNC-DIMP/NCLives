@@ -48,3 +48,562 @@ Stack trace:
 #21 {main}
 REQUEST_URI=/nclives/index.php/site/login
 ---
+2012/05/04 15:18:08 [error] [exception.CException] exception 'CException' with message 'BootInput: Failed to initialize widget! Model is not set.' in /Applications/MAMP/htdocs/nclives/protected/extensions/bootstrap/widgets/input/BootInput.php:60
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(148): BootInput->init()
+#1 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#2 /Applications/MAMP/htdocs/nclives/protected/extensions/bootstrap/widgets/BootActiveForm.php(493): CBaseController->widget('bootstrap.widge...', Array)
+#3 /Applications/MAMP/htdocs/nclives/protected/extensions/bootstrap/widgets/BootActiveForm.php(180): BootActiveForm->inputRow('textfield', NULL, 'textField', NULL, Array)
+#4 /Applications/MAMP/htdocs/nclives/protected/views/site/index.php(12): BootActiveForm->textFieldRow(NULL, 'textField', Array)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#6 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', NULL, true)
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', NULL, true)
+#8 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#9 /Applications/MAMP/htdocs/nclives/protected/controllers/SiteController.php(32): CController->render('index')
+#10 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('index')
+#15 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('site/index')
+#16 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/nclives/site/index
+---
+2012/05/04 15:20:18 [error] [exception.CException] exception 'CException' with message 'SiteController has an extra endWidget() call in its view.' in /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php:211
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/protected/views/site/index.php(12): CBaseController->endWidget()
+#1 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', NULL, true)
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', NULL, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#5 /Applications/MAMP/htdocs/nclives/protected/controllers/SiteController.php(32): CController->render('index')
+#6 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#9 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('index')
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('site/index')
+#12 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/nclives/site/index
+---
+2012/05/04 15:24:37 [error] [exception.CException] exception 'CException' with message 'BootInput: Failed to initialize widget! Model is not set.' in /Applications/MAMP/htdocs/nclives/protected/extensions/bootstrap/widgets/input/BootInput.php:60
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(148): BootInput->init()
+#1 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#2 /Applications/MAMP/htdocs/nclives/protected/extensions/bootstrap/widgets/BootActiveForm.php(493): CBaseController->widget('bootstrap.widge...', Array)
+#3 /Applications/MAMP/htdocs/nclives/protected/extensions/bootstrap/widgets/BootActiveForm.php(180): BootActiveForm->inputRow('textfield', NULL, 'textField', NULL, Array)
+#4 /Applications/MAMP/htdocs/nclives/protected/views/site/index.php(14): BootActiveForm->textFieldRow(NULL, 'textField', Array)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#6 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', NULL, true)
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', NULL, true)
+#8 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#9 /Applications/MAMP/htdocs/nclives/protected/controllers/SiteController.php(32): CController->render('index')
+#10 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('index')
+#15 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('site/index')
+#16 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/nclives/site/index
+---
+2012/05/04 15:26:46 [error] [exception.CException] exception 'CException' with message 'Alias "bootstrap.widgets.BootForm" is invalid. Make sure it points to an existing PHP file.' in /Applications/MAMP/htdocs/nclives/framework/YiiBase.php:318
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CWidgetFactory.php(147): YiiBase::import('bootstrap.widge...', true)
+#1 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(147): CWidgetFactory->createWidget(Object(SiteController), 'bootstrap.widge...', Array)
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(190): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 /Applications/MAMP/htdocs/nclives/protected/views/site/index.php(12): CBaseController->beginWidget('bootstrap.widge...', Array)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', NULL, true)
+#6 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', NULL, true)
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#8 /Applications/MAMP/htdocs/nclives/protected/controllers/SiteController.php(32): CController->render('index')
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('index')
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('site/index')
+#15 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/nclives/site/index
+---
+2012/05/04 15:33:00 [error] [exception.CException] exception 'CException' with message 'SiteController has an extra endWidget() call in its view.' in /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php:211
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/protected/views/site/index.php(13): CBaseController->endWidget()
+#1 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', NULL, true)
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', NULL, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#5 /Applications/MAMP/htdocs/nclives/protected/controllers/SiteController.php(32): CController->render('index')
+#6 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#9 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('index')
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('site/index')
+#12 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/nclives/site/index
+---
+2012/05/04 15:51:29 [error] [exception.CException] exception 'CException' with message 'Property "BootButton.class" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:174
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CWidgetFactory.php(162): CComponent->__set('class', 'btn-large')
+#1 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(147): CWidgetFactory->createWidget(Object(SiteController), 'bootstrap.widge...', Array)
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 /Applications/MAMP/htdocs/nclives/protected/views/site/index.php(15): CBaseController->widget('bootstrap.widge...', Array)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', NULL, true)
+#6 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', NULL, true)
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#8 /Applications/MAMP/htdocs/nclives/protected/controllers/SiteController.php(32): CController->render('index')
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('index')
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('site/index')
+#15 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/nclives/site/index
+---
+2012/05/10 13:45:22 [error] [exception.CException] exception 'CException' with message 'The attribute must be specified in the format of "Name:Type:Label", where "Type" and "Label" are optional.' in /Applications/MAMP/htdocs/nclives/framework/zii/widgets/CDetailView.php:179
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(174): CDetailView->run()
+#1 /Applications/MAMP/htdocs/nclives/protected/views/cdm/view.php(47): CBaseController->widget('bootstrap.widge...', Array)
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /Applications/MAMP/htdocs/nclives/protected/controllers/CdmController.php(55): CController->render('view', Array)
+#7 [internal function]: CdmController->actionView('1')
+#8 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CdmController), Array)
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CdmController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#17 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('view')
+#19 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('cdm/view')
+#20 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/nclives/index.php/cdm/1
+---
+2012/05/10 13:56:21 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.baseUr" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/base/CModule.php(106): CComponent->__get('baseUr')
+#1 /Applications/MAMP/htdocs/nclives/protected/views/cdm/view.php(3): CModule->__get('baseUr')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /Applications/MAMP/htdocs/nclives/protected/controllers/CdmController.php(55): CController->render('view', Array)
+#7 [internal function]: CdmController->actionView('1')
+#8 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CdmController), Array)
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CdmController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#17 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('view')
+#19 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('cdm/view')
+#20 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/nclives/index.php/cdm/1
+---
+2012/05/10 14:09:32 [error] [exception.CException] exception 'CException' with message 'Property "IaRecords.Url" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/db/ar/CActiveRecord.php(144): CComponent->__get('Url')
+#1 /Applications/MAMP/htdocs/nclives/protected/views/iarecords/view.php(21): CActiveRecord->__get('Url')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /Applications/MAMP/htdocs/nclives/protected/controllers/IarecordsController.php(55): CController->render('view', Array)
+#7 [internal function]: IaRecordsController->actionView('1')
+#8 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(IaRecordsController), Array)
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(IaRecordsController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#17 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('view')
+#19 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('iarecords/view')
+#20 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/nclives/index.php/iarecords/1
+---
+2012/05/10 14:48:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "iarecord/view".' in /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('iarecord/view')
+#1 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/nclives/index.php/iarecord/14
+---
+2012/05/10 14:48:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ia_record/view".' in /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('ia_record/view')
+#1 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/nclives/index.php/ia_record/14
+---
+2012/05/10 14:49:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "iiarecords/view".' in /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('iiarecords/view')
+#1 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/nclives/index.php/iiarecords/14
+---
+2012/05/10 15:12:47 [error] [exception.CException] exception 'CException' with message 'Property "BootNavbar.0" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:174
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CWidgetFactory.php(162): CComponent->__set('0', '<form class="na...')
+#1 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(147): CWidgetFactory->createWidget(Object(IaRecordsController), 'bootstrap.widge...', Array)
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 /Applications/MAMP/htdocs/nclives/protected/views/layouts/main.php(48): CBaseController->widget('bootstrap.widge...', Array)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#6 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(77): CBaseController->renderFile('/Applications/M...', Array, true)
+#7 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate('<div class="spa...')
+#8 /Applications/MAMP/htdocs/nclives/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput('<div class="spa...')
+#9 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(207): COutputProcessor->run()
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#11 /Applications/MAMP/htdocs/nclives/protected/views/layouts/column2.php(21): CBaseController->endContent()
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(785): CBaseController->renderFile('/Applications/M...', Array, true)
+#15 /Applications/MAMP/htdocs/nclives/protected/controllers/IarecordsController.php(55): CController->render('view', Array)
+#16 [internal function]: IaRecordsController->actionView('1')
+#17 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(IaRecordsController), Array)
+#18 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(IaRecordsController), Object(ReflectionMethod), Array)
+#19 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#20 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#21 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#22 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#23 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#24 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#25 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#26 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('view')
+#28 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('iarecords/view')
+#29 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#30 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/nclives/index.php/iarecords/1
+---
+2012/05/10 16:18:22 [error] [exception.CException] exception 'CException' with message 'Property "Cdm.Titele" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/db/ar/CActiveRecord.php(144): CComponent->__get('Titele')
+#1 /Applications/MAMP/htdocs/nclives/protected/views/cdm/view.php(23): CActiveRecord->__get('Titele')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /Applications/MAMP/htdocs/nclives/protected/controllers/CdmController.php(55): CController->render('view', Array)
+#7 [internal function]: CdmController->actionView('2')
+#8 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CdmController), Array)
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CdmController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#17 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('view')
+#19 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('cdm/view')
+#20 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/nclives/index.php/cdm/2
+---
+2012/05/11 08:57:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "browse".' in /Applications/MAMP/htdocs/nclives/framework/web/CController.php:484
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(271): CController->missingAction('browse')
+#1 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('browse')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('search/browse')
+#3 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/nclives/index.php/search/browse
+HTTP_REFERER=http://localhost/nclives/index.php/iarecords/1
+---
+2012/05/11 09:04:27 [error] [php] Object of class BootButton could not be converted to string (/Applications/MAMP/htdocs/nclives/protected/views/layouts/main.php:37)
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(77): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate()
+#2 /Applications/MAMP/htdocs/nclives/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput()
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(207): CContentDecorator->run()
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(301): SiteController->endWidget()
+#5 /Applications/MAMP/htdocs/nclives/protected/views/layouts/column1.php(5): SiteController->endContent()
+#6 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require()
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): SiteController->renderInternal()
+#8 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(785): SiteController->renderFile()
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CViewAction.php(141): SiteController->render()
+#10 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(75): CViewAction->run()
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CViewAction->runWithParams()
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): SiteController->runAction()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): SiteController->run()
+#15 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#16 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /Applications/MAMP/htdocs/nclives/index.php(13): CWebApplication->run()
+REQUEST_URI=/nclives/index.php/site/page?view=about
+in /Applications/MAMP/htdocs/nclives/protected/views/layouts/main.php (37)
+in /Applications/MAMP/htdocs/nclives/protected/views/layouts/column1.php (5)
+in /Applications/MAMP/htdocs/nclives/index.php (13)
+2012/05/11 09:06:38 [error] [php] Object of class BootButton could not be converted to string (/Applications/MAMP/htdocs/nclives/protected/views/layouts/main.php:37)
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(77): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate()
+#2 /Applications/MAMP/htdocs/nclives/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput()
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(207): CContentDecorator->run()
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(301): SiteController->endWidget()
+#5 /Applications/MAMP/htdocs/nclives/protected/views/layouts/column1.php(5): SiteController->endContent()
+#6 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require()
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): SiteController->renderInternal()
+#8 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(785): SiteController->renderFile()
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CViewAction.php(141): SiteController->render()
+#10 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(75): CViewAction->run()
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CViewAction->runWithParams()
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): SiteController->runAction()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): SiteController->run()
+#15 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#16 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /Applications/MAMP/htdocs/nclives/index.php(13): CWebApplication->run()
+REQUEST_URI=/nclives/index.php/site/page?view=about
+in /Applications/MAMP/htdocs/nclives/protected/views/layouts/main.php (37)
+in /Applications/MAMP/htdocs/nclives/protected/views/layouts/column1.php (5)
+in /Applications/MAMP/htdocs/nclives/index.php (13)
+2012/05/11 09:06:41 [error] [php] Object of class BootButton could not be converted to string (/Applications/MAMP/htdocs/nclives/protected/views/layouts/main.php:37)
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(77): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/nclives/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate()
+#2 /Applications/MAMP/htdocs/nclives/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput()
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(207): CContentDecorator->run()
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(301): SiteController->endWidget()
+#5 /Applications/MAMP/htdocs/nclives/protected/views/layouts/column1.php(5): SiteController->endContent()
+#6 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require()
+#7 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): SiteController->renderInternal()
+#8 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(785): SiteController->renderFile()
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CViewAction.php(141): SiteController->render()
+#10 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(75): CViewAction->run()
+#11 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CViewAction->runWithParams()
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(287): SiteController->runAction()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): SiteController->run()
+#15 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#16 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /Applications/MAMP/htdocs/nclives/index.php(13): CWebApplication->run()
+REQUEST_URI=/nclives/index.php/site/page?view=about
+in /Applications/MAMP/htdocs/nclives/protected/views/layouts/main.php (37)
+in /Applications/MAMP/htdocs/nclives/protected/views/layouts/column1.php (5)
+in /Applications/MAMP/htdocs/nclives/index.php (13)
+2012/05/14 13:14:50 [error] [exception.CException] exception 'CException' with message 'Property "IaRecords.ia_identifier" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/db/ar/CActiveRecord.php(144): CComponent->__get('ia_identifier')
+#1 /Applications/MAMP/htdocs/nclives/protected/views/iarecords/_view.php(8): CActiveRecord->__get('ia_identifier')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/zii/widgets/CListView.php(242): CController->renderPartial('_view', Array)
+#6 /Applications/MAMP/htdocs/nclives/framework/zii/widgets/CBaseListView.php(158): CListView->renderItems()
+#7 [internal function]: CBaseListView->renderSection(Array)
+#8 /Applications/MAMP/htdocs/nclives/framework/zii/widgets/CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{sort...')
+#9 /Applications/MAMP/htdocs/nclives/framework/zii/widgets/CBaseListView.php(126): CBaseListView->renderContent()
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(174): CBaseListView->run()
+#11 /Applications/MAMP/htdocs/nclives/protected/views/iarecords/index.php(17): CBaseController->widget('bootstrap.widge...', Array)
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#15 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#16 /Applications/MAMP/htdocs/nclives/protected/controllers/IarecordsController.php(133): CController->render('index', Array)
+#17 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(50): IaRecordsController->actionIndex()
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#19 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#21 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#25 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('index')
+#27 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('iarecords/index')
+#28 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#29 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/nclives/index.php/iarecords/index
+HTTP_REFERER=http://localhost/nclives/index.php/iarecords/1
+---
+2012/05/14 13:57:14 [error] [exception.CException] exception 'CException' with message 'Property "Cdm.collection" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/db/ar/CActiveRecord.php(144): CComponent->__get('collection')
+#1 /Applications/MAMP/htdocs/nclives/protected/views/cdm/view.php(21): CActiveRecord->__get('collection')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /Applications/MAMP/htdocs/nclives/protected/controllers/CdmController.php(55): CController->render('view', Array)
+#7 [internal function]: CdmController->actionView('1')
+#8 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CdmController), Array)
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CdmController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#17 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('view')
+#19 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('cdm/view')
+#20 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/nclives/index.php/cdm/1
+---
+2012/05/14 13:59:24 [error] [exception.CException] exception 'CException' with message 'Property "Cdm.collection" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/db/ar/CActiveRecord.php(144): CComponent->__get('collection')
+#1 /Applications/MAMP/htdocs/nclives/protected/views/cdm/view.php(21): CActiveRecord->__get('collection')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /Applications/MAMP/htdocs/nclives/protected/controllers/CdmController.php(55): CController->render('view', Array)
+#7 [internal function]: CdmController->actionView('1')
+#8 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CdmController), Array)
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CdmController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#17 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('view')
+#19 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('cdm/view')
+#20 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/nclives/index.php/cdm/1
+---
+2012/05/14 14:04:46 [error] [exception.CException] exception 'CException' with message 'Property "Cdm.collection" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/db/ar/CActiveRecord.php(144): CComponent->__get('collection')
+#1 /Applications/MAMP/htdocs/nclives/protected/views/cdm/view.php(21): CActiveRecord->__get('collection')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /Applications/MAMP/htdocs/nclives/protected/controllers/CdmController.php(55): CController->render('view', Array)
+#7 [internal function]: CdmController->actionView('1')
+#8 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CdmController), Array)
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CdmController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#17 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('view')
+#19 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('cdm/view')
+#20 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/nclives/index.php/cdm/1
+---
+2012/05/14 14:04:52 [error] [exception.CException] exception 'CException' with message 'Property "Cdm.collection" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/db/ar/CActiveRecord.php(144): CComponent->__get('collection')
+#1 /Applications/MAMP/htdocs/nclives/protected/views/cdm/view.php(21): CActiveRecord->__get('collection')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
+#6 /Applications/MAMP/htdocs/nclives/protected/controllers/CdmController.php(55): CController->render('view', Array)
+#7 [internal function]: CdmController->actionView('1')
+#8 /Applications/MAMP/htdocs/nclives/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(CdmController), Array)
+#9 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(CdmController), Object(ReflectionMethod), Array)
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#17 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('view')
+#19 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('cdm/view')
+#20 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/nclives/index.php/cdm/1
+---
+2012/05/14 14:13:42 [error] [exception.CException] exception 'CException' with message 'Property "Cdm.collection" is not defined.' in /Applications/MAMP/htdocs/nclives/framework/base/CComponent.php:131
+Stack trace:
+#0 /Applications/MAMP/htdocs/nclives/framework/db/ar/CActiveRecord.php(144): CComponent->__get('collection')
+#1 /Applications/MAMP/htdocs/nclives/protected/views/cdm/_view.php(8): CActiveRecord->__get('collection')
+#2 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#3 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#4 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#5 /Applications/MAMP/htdocs/nclives/framework/zii/widgets/CListView.php(242): CController->renderPartial('_view', Array)
+#6 /Applications/MAMP/htdocs/nclives/framework/zii/widgets/CBaseListView.php(158): CListView->renderItems()
+#7 [internal function]: CBaseListView->renderSection(Array)
+#8 /Applications/MAMP/htdocs/nclives/framework/zii/widgets/CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{sort...')
+#9 /Applications/MAMP/htdocs/nclives/framework/zii/widgets/CBaseListView.php(126): CBaseListView->renderContent()
+#10 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(174): CBaseListView->run()
+#11 /Applications/MAMP/htdocs/nclives/protected/views/cdm/index.php(17): CBaseController->widget('bootstrap.widge...', Array)
+#12 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(127): require('/Applications/M...')
+#13 /Applications/MAMP/htdocs/nclives/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Applications/M...', Array, true)
+#14 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(870): CBaseController->renderFile('/Applications/M...', Array, true)
+#15 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#16 /Applications/MAMP/htdocs/nclives/protected/controllers/CdmController.php(133): CController->render('index', Array)
+#17 /Applications/MAMP/htdocs/nclives/framework/web/actions/CInlineAction.php(50): CdmController->actionIndex()
+#18 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#19 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#21 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 /Applications/MAMP/htdocs/nclives/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 /Applications/MAMP/htdocs/nclives/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(292): CFilterChain->run()
+#25 /Applications/MAMP/htdocs/nclives/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(276): CController->run('index')
+#27 /Applications/MAMP/htdocs/nclives/framework/web/CWebApplication.php(135): CWebApplication->runController('cdm/index')
+#28 /Applications/MAMP/htdocs/nclives/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#29 /Applications/MAMP/htdocs/nclives/index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/nclives/index.php/cdm/index
+HTTP_REFERER=http://localhost/nclives/index.php/cdm/1
+---

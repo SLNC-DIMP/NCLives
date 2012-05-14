@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'ia_records':
  * @property integer $id
- * @property string $ia_identifier
+ * @property string $identifier
  * @property string $base_id
  * @property integer $fulltext_available
  * @property string $url_link
@@ -52,12 +52,12 @@ class IaRecords extends CActiveRecord
 		return array(
 			array('fulltext_available', 'required'),
 			array('fulltext_available', 'numerical', 'integerOnly'=>true),
-			array('ia_identifier, datestamp, Updatedate', 'length', 'max'=>50),
+			array('identifier, datestamp, Updatedate', 'length', 'max'=>50),
 			array('base_id, url_link, Title, Volume, Creator, Subject, Publisher, Pub_Date, Language, Sponsor, Contributor', 'length', 'max'=>255),
 			array('MediaType', 'length', 'max'=>25),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, ia_identifier, base_id, fulltext_available, url_link, datestamp, Title, Volume, Creator, Subject, Publisher, Pub_Date, Language, Sponsor, Contributor, MediaType, Updatedate', 'safe', 'on'=>'search'),
+			array('id, identifier, base_id, fulltext_available, url_link, datestamp, Title, Volume, Creator, Subject, Publisher, Pub_Date, Language, Sponsor, Contributor, MediaType, Updatedate', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,7 +79,7 @@ class IaRecords extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'ia_identifier' => 'Ia Identifier',
+			'identifier' => 'Identifier',
 			'base_id' => 'Base',
 			'fulltext_available' => 'Fulltext Available',
 			'url_link' => 'Url Link',
@@ -110,7 +110,7 @@ class IaRecords extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('ia_identifier',$this->ia_identifier,true);
+		$criteria->compare('identifier',$this->identifier,true);
 		$criteria->compare('base_id',$this->base_id,true);
 		$criteria->compare('fulltext_available',$this->fulltext_available);
 		$criteria->compare('url_link',$this->url_link,true);

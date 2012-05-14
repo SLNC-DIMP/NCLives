@@ -4,8 +4,8 @@
 	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ia_identifier')); ?>:</b>
-	<?php echo CHtml::encode($data->ia_identifier); ?>
+<!--	<b><?php echo CHtml::encode($data->getAttributeLabel('identifier')); ?>:</b>
+	<?php echo CHtml::encode($data->identifier); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('base_id')); ?>:</b>
@@ -15,7 +15,7 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fulltext_available')); ?>:</b>
 	<?php echo CHtml::encode($data->fulltext_available); ?>
 	<br />
-
+-->
 	<b><?php echo CHtml::encode($data->getAttributeLabel('url_link')); ?>:</b>
 	<?php echo CHtml::encode($data->url_link); ?>
 	<br />
@@ -27,8 +27,7 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Title')); ?>:</b>
 	<?php echo CHtml::encode($data->Title); ?>
 	<br />
-
-	<?php /*
+ 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Volume')); ?>:</b>
 	<?php echo CHtml::encode($data->Volume); ?>
 	<br />
@@ -64,11 +63,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('MediaType')); ?>:</b>
 	<?php echo CHtml::encode($data->MediaType); ?>
 	<br />
-
+<!--
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Updatedate')); ?>:</b>
-	<?php echo CHtml::encode($data->Updatedate); ?>
+	<?php  echo CHtml::encode($data->Updatedate); ?>
 	<br />
-
-	*/ ?>
+-->
 
 </div>

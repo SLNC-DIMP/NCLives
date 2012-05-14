@@ -79,6 +79,7 @@ class IaMetaCommand extends CConsoleCommand {
 			foreach($xml->subject as $subject) {
 				$subjects .= $subject. ",";
 			}
+			
 			$fields = array(
 				'Title'         => $xml->title, 
 				'Volume'        => $xml->volume, 

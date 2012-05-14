@@ -7,7 +7,7 @@ class CdmMetaCommand extends CConsoleCommand {
 	}
 	
 	protected function getCdm() {
-		$sql = "SELECT * FROM cdm_records WHERE base_id IS NOT NULL";
+		$sql = "SELECT * FROM cdm_records WHERE id > 2884";
 		$images = Yii::app()->db->createCommand($sql)
 			->queryAll();
 		
@@ -30,8 +30,10 @@ class CdmMetaCommand extends CConsoleCommand {
 		$url_suffix = explode('/', $record['base_id']);
 		$url = Yii::app()->params['baseCDMUrl'] . 'dmGetItemInfo/' .  $url_suffix[0] . '/' . $url_suffix[1] . '/json';
 		
-		if($results = file_get_contents($url)) {
+		if($results = @file_get_contents($url)) {
 			$file = json_decode($results, true);
+			
+			if(is_null($file)) { return false; }
 			
 			foreach($file as &$value) { // passes value by reference
 				$value = (!empty($value)) ? $value : NULL; 
@@ -69,14 +71,13 @@ class CdmMetaCommand extends CConsoleCommand {
 		return $metadata;
 	}
 	
-	
 	public function actionGetCdmMeta() {
 		$records = $this->getCdm();
 		if(empty($records)) { echo "No records to grab\r\n"; exit; }
 		
 		foreach($records as $record) {
 			$metadata = $this->getCdmInfo($record, $record['id']);
-			if($this->updateCdm($metadata)) {
+			if(is_array($metadata) && $this->updateCdm($metadata)) {
 				echo $record['id'] . " updated\r\n";
 			} else {
 				echo "Couldn't update " . $record['id'] . "\r\n";
