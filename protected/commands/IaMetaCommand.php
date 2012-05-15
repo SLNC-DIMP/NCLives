@@ -111,11 +111,15 @@ class IaMetaCommand extends CConsoleCommand {
 		}
 	}
 	
+	/**
+	* Converts animated gif into a static png
+	* See comment by max lloyd http://mx.php.net/imagecreatefromgif
+	*/
 	protected function getGif($file, $base_id, $file_id) {
-		$gif = imagecreatefromgif($file);
+		$gif = @imagecreatefromgif($file);
 		if($gif) {
 			$path = 'images/' . $base_id . '.png';
-			$png = imagepng($gif, '../'.$path);
+			$png = @imagepng($gif, '../'.$path);
 			if($png) {
 				$this->updateImage(array($path, $file_id));
 				echo $path . " created\r\n";
