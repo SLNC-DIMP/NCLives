@@ -16,7 +16,7 @@ $url = explode('/', $model->base_id);
 
 <h1><?php echo $model->Title; ?></h1>
 <img src="http://cdm16062.contentdm.oclc.org/utils/getthumbnail/collection/<?php echo $url[0] . '/id/' . $url[1]; ?>" alt="<?php echo $model->Title; ?>">
-<h3>Direct Item Link: <a href="<?php echo $model->Url; ?>">Click here to view item</a></h3>
+<h3>Direct Item Link: <a target="_blank" href="<?php echo $model->Url; ?>">Click here to view item</a></h3>
 <?php $this->widget('bootstrap.widgets.BootDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(

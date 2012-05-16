@@ -11,10 +11,12 @@ clear: both;
 }
 
 #viewItem {
-border: 5px solid #CCC;
+border: 5px solid #E0E0E0;
 display:inline;
-width: 500px;
-background-color:#CCC;
+width: 275px;
+background-color: #E0E0E0;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
 border-radius: 5px;
 }
 
@@ -31,9 +33,9 @@ padding: 5px 0 5px 15px;
 table {
 text-align:justify;
 border: 1px solid #CCC;
-border-radius: 5px;
 -moz-border-radius: 5px;
--webkit-border-image: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
 }
 
 .gif_format {

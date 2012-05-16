@@ -4,8 +4,8 @@ $css->registerCssFile(Yii::app()->baseUrl.'/css/item_view.css');
 ?>
 <div class="view">
 	<?php echo CHtml::image(Yii::app()->request->baseUrl . '/' . $data->image_path, $data->Title, array('class'=>'gif_format')); ?>
-<!--	<img style="float:left; padding: 0 10px 10px 0" src="http://archive.org/download/<?php echo $data->base_id . '/' . $data->base_id . '.gif'; ?>" alt="<?php echo $data->Title; ?>"> -->
     <br />
+    
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Title')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->Title),array('view','id'=>$data->id)); ?>
 	<br />
@@ -75,5 +75,16 @@ $css->registerCssFile(Yii::app()->baseUrl.'/css/item_view.css');
 	<?php  echo CHtml::encode($data->Updatedate); ?>
 	<br />
 -->
-
+	<b>More Info: <a href="<?php echo $data->url_link ?>">Click here to view item</a></b>
+    <br />
+	<br />
+    <span id="viewOptions"><strong>Viewing Options:</strong></span>
+	<ul id="viewItem">
+    	<li><a target="_blank" href="http://archive.org/stream/<?php echo $data->base_id; ?>">Read Online</a></li>
+        <li><a target="_blank" href="http://archive.org/download/<?php echo $data->base_id . '/' .$data->base_id; ?>.pdf">PDF</a></li>
+        <li><a target="_blank" href="http://archive.org/stream/<?php echo $data->base_id . '/' .$data->base_id; ?>_djvu.txt">Full Text</a></li> 
+        <li><a target="_blank" href="http://archive.org/download/<?php echo $data->base_id . '/' .$data->base_id; ?>.mobi">Kindle</a></li>      
+    </ul>
+    <br /><br />
+    
 </div>

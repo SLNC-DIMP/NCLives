@@ -17,17 +17,14 @@ $this->menu=array(
 ?>
 
 <h1><?php echo $model->Title; ?></h1>
+<?php echo CHtml::image(Yii::app()->request->baseUrl . '/' . $model->image_path, $model->Title, array('class'=>'gif_format')); ?>
 <div>
 <h3 id="viewOptions">Viewing Options:</h3>
 	<ul id="viewItem">
-    	<li><a href="http://archive.org/stream/<?php echo $model->base_id; ?>">Read Online</a></li>
-        <li><a href="http://archive.org/download/<?php echo $model->base_id . '/' .$model->base_id; ?>.pdf">PDF</a></li>
-        <li><a href="http://archive.org/download/<?php echo $model->base_id . '/' .$model->base_id; ?>_bw.pdf">B&amp;W PDF</a></li>
-        <li><a href="http://archive.org/download/<?php echo $model->base_id . '/' .$model->base_id; ?>.epub">EPUB</a></li>
-        <li><a href="http://archive.org/download/<?php echo $model->base_id . '/' .$model->base_id; ?>.mobi">Kindle</a></li>
-        <li><a href="http://archive.org/download/<?php echo $model->base_id . '/' .$model->base_id; ?>_daisy.zip">Daisy</a></li>
-        <li><a href="http://archive.org/stream/<?php echo $model->base_id . '/' .$model->base_id; ?>_djvu.txt">Full Text</a></li>
-        <li><a href="http://archive.org/stream/<?php echo $model->base_id . '/' .$model->base_id; ?>.djvu">DjVu</a></li>
+    	<li><a target="_blank" href="http://archive.org/stream/<?php echo $model->base_id; ?>">Read Online</a></li>
+        <li><a target="_blank" href="http://archive.org/download/<?php echo $model->base_id . '/' .$model->base_id; ?>.pdf">PDF</a></li>
+        <li><a target="_blank" href="http://archive.org/stream/<?php echo $model->base_id . '/' .$model->base_id; ?>_djvu.txt">Full Text</a></li> 
+        <li><a target="_blank" href="http://archive.org/download/<?php echo $model->base_id . '/' .$model->base_id; ?>.mobi">Kindle</a></li>      
     </ul>
 </div>
 <h3>Direct Item Link: <a href="<?php echo $model->url_link ?>">Click here to view item</a></h3>
@@ -35,7 +32,6 @@ $this->menu=array(
 <?php $this->widget('bootstrap.widgets.BootDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
-		
 		'url_link',
 		'datestamp',
 		'Title',
