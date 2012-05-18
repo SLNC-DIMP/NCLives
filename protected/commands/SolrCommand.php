@@ -14,16 +14,16 @@ class SolrCommand extends CConsoleCommand {
 		$ia_doc = new ASolrDocument();
 		
 		$ia_doc->id = $doc['id'];
-		$ia_doc->title =  $doc['Title'];
-		$ia_doc->volume = $doc['Volume'];
-		$ia_doc->creator = $doc['Creator'];
-		$ia_doc->subject = $doc['Subject'];
-		$ia_doc->publisher = $doc['Publisher'];
-		$ia_doc->pub_date = $doc['Pub_Date'];
-		$ia_doc->language = $doc['Language'];
-		$ia_doc->sponsor = $doc['Sponsor'];
-		$ia_doc->contributor = $doc['Contributor'];
-		$ia_doc->media_type = $doc['MediaType'];
+		$ia_doc->Title =  $doc['Title'];
+		$ia_doc->Volume = $doc['Volume'];
+		$ia_doc->Creator = $doc['Creator'];
+		$ia_doc->Subject = $doc['Subject'];
+		$ia_doc->Publisher = $doc['Publisher'];
+		$ia_doc->Pub_Date = $doc['Pub_Date'];
+		$ia_doc->Language = $doc['Language'];
+		$ia_doc->Sponsor = $doc['Sponsor'];
+		$ia_doc->Contributor = $doc['Contributor'];
+		$ia_doc->MediaType = $doc['MediaType'];
 		$ia_doc->item_text = $doc['item_text'];
 		$ia_doc->image_path = $doc['image_path'];
 		$ia_doc->base_id = $doc['base_id'];
