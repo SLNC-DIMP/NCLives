@@ -1,15 +1,16 @@
 <?php
 class SolrController extends Controller {
 	public function actionSearch() {
-		$this->layout = 'column2';
-		
-		if (($term = Yii::app()->getRequest()->getParam('q', NULL)) !== NULL) {
+		if(($term = trim(Yii::app()->getRequest()->getParam('q'))) !== '') {
+			$criteria = new ASolrCriteria;
+			$criteria->setLimit(5000);
+			
 			$term = strip_tags(trim($term));
-		//	$results = ASolrDocument::model()->findAllByAttributes(array("title" => $term));
-			$dataProvider = new ASolrDataProvider(ASolrDocument::model());
-			$dataProvider->criteria->query = "*";
-			$results = $dataProvider->getData();
-		} 
+			
+			$results = ASolrDocument::model()->findAllByAttributes(array("Title" => $term, 'Contributor' => $term),  $criteria);
+		} else {
+			$results = 0;
+		}
 		
 		$this->render('search', compact('results', 'term'));
 	}

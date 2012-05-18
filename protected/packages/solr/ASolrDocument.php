@@ -805,7 +805,7 @@ class ASolrDocument extends CFormModel {
 		foreach($attributes as $attribute => $value) {
 			$query[] = $attribute.":".$value;
 		}
-		$criteria->setQuery(implode(" AND ",$query));
+		$criteria->setQuery(implode(" OR ",$query)); // changed to " "
 		return $this->query($criteria,true);
 	}
 
