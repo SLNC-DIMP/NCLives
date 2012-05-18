@@ -8,11 +8,13 @@
 	$form = $this->beginWidget('bootstrap.widgets.BootActiveForm', array(
 		'id'=>'searchForm',
 		'type'=>'search',
+		'action' => 'solr/search',
+		'method' => 'get',
 		'htmlOptions'=>array('class'=>'well'),
 	)); ?>
 	<?php // echo $form->textFieldRow($model, 'textField', array('class'=>'input-medium')); ?>
-    <input type="text" id="home_search" class="input-xxlarge search-query" placeholder="Search NCLives!" />
-	<?php $this->widget('bootstrap.widgets.BootButton', array('buttonType'=>'submit', 'size'=>'large', 'icon'=>'search', 'label'=>'Search')); ?>
+    <input type="text" id="home_search" class="input-xxlarge search-query" name="q" value="" placeholder="Search NCLives!" />
+	<?php $this->widget('bootstrap.widgets.BootButton', array('buttonType'=>'submit', 'size'=>'large', 'icon'=>'search', 'label'=>'Search', 'htmlOptions' => array('value' => 'search'))); ?>
 	 </form>
 	<?php $this->endWidget(); ?>
 <?php $this->endWidget(); ?>

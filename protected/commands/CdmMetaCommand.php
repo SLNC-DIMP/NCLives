@@ -7,7 +7,7 @@ class CdmMetaCommand extends CConsoleCommand {
 	}
 	
 	protected function getCdm() {
-		$sql = "SELECT * FROM cdm_records WHERE Title IS NULL";
+		$sql = "SELECT * FROM cdm_records";
 		$images = Yii::app()->db->createCommand($sql)
 			->queryAll();
 		
@@ -22,52 +22,84 @@ class CdmMetaCommand extends CConsoleCommand {
 		return $updated;
 	}
 	
+	protected function deleteRecord(array $values) {
+		$sql = "DELETE FROM cdm_records SET WHERE id = ?";
+		Yii::app()->db->createCommand($sql)
+			->execute(array_values($values));
+	}
+	
+	/**
+	* See http://stackoverflow.com/questions/854128/find-duplicate-records-in-mysql for query to find duplicates.
+	* Finds all pages for compound objects
+	* @return object
+	*/
+	protected function getDups() {
+		$sql = "SELECT id, cdm_records.Url FROM cdm_records
+			INNER JOIN (SELECT Url FROM cdm_records
+			GROUP BY Url HAVING count(id) > 1) dup ON cdm_records.Url = dup.Url";
+		
+		$dups = Yii::app()->db->createCommand($sql)
+			->queryAll();
+		
+		return $dups;
+	}
+	
+	protected function getJson($url) {
+		if($results = @file_get_contents($url)) {
+			return json_decode($results, true);
+		}
+		
+		return false;
+	}
+	
+	protected function buildUrl($record, $verb) {
+		$url_suffix = explode('/', $record['base_id']);
+		
+		return Yii::app()->params['baseCDMUrl'] . $verb . '/' .  $url_suffix[0] . '/' . $url_suffix[1] . '/json';
+	}
+	
 	/**
 	* Format can be json or xml
 	* getItemInfo
 	*/
 	protected function getCdmInfo($record, $file_id) {
-		$url_suffix = explode('/', $record['base_id']);
-		$url = Yii::app()->params['baseCDMUrl'] . 'dmGetItemInfo/' .  $url_suffix[0] . '/' . $url_suffix[1] . '/json';
+		$url = $this->buildUrl($record, 'dmGetItemInfo');
+		$file = $this->getJson($url);
 		
-		if($results = @file_get_contents($url)) {
-			$file = json_decode($results, true);
+		if(!$file) { return false; }
 			
-			if(is_null($file)) { return false; }
-			
-			foreach($file as &$value) { // passes value by reference
-				$value = (!empty($value)) ? $value : NULL; 
-			}
-			
-			$metadata = array(
-				'Title'                 => $file['title'],
-				'Creator'               => $file['creata'],
-				'Item_Date'             => $file['date'],
-				'Time_Period'           => $file['coverab'],
-				'Subjects'              => $file['subjec'],
-				'Description'           => $file['descri'],
-				'Rights'                => $file['rights'], 
-				'Characteristics'       => $file['physic'],
-				'Formats'               => $file['publia'],
-				'DCR_Collection'        => $file['source'], 
-				'Digital_Collection'    => $file['digita'],
-				'Format'                => $file['format'],
-				'Audience'              => $file['audien'],
-				'Archival_Coll_Creator' => $file['hosted'],
-				'Local'                 => $file['local'],
-				'Type'                  => $file['type'],
-				'Language'              => $file['langua'],
-				'Themes'                => $file['themes'],
-				'Url'                   => $file['url'],
-				'Created'               => $file['dmcreated'], 
-				'Modified'              => $file['dmmodified'],
-				'file_id'               => $file_id
-			);
-			
-		} else {
-			return false;
+		foreach($file as &$value) { // passes value by reference
+			$value = (!empty($value)) ? $value : NULL; 
 		}
-
+			
+		$collection = explode('/', $record['base_id']);
+		$perm_url = 'http://digital.ncdcr.gov/u?/' . $collection[0] . ',' . $collection[1];
+			
+		$metadata = array(
+			'Title'                 => $file['title'],
+			'Creator'               => $file['creato'],
+			'Item_Date'             => $file['dated'],
+			'Time_Period'           => $file['time'],
+			'Subjects'              => $file['subjec'],
+			'Description'           => $file['descri'],
+			'Rights'                => $file['rights'], 
+			'Characteristics'       => $file['physic'],
+			'Formats'               => $file['publia'],
+			'DCR_Collection'        => $file['source'], 
+			'Digital_Collection'    => $file['digita'],
+			'Format'                => $file['format'],
+			'Audience'              => $file['audien'],
+			'Archival_Coll_Creator' => $file['hosted'],
+			'Local'                 => $file['local'],
+			'Type'                  => $file['type'],
+			'Language'              => $file['langua'],
+			'Themes'                => $file['themes'],
+			'Url'                   => $perm_url,
+			'Created'               => $file['dmcreated'], 
+			'Modified'              => $file['dmmodified'],
+			'file_id'               => $file_id
+		);
+			
 		return $metadata;
 	}
 	
@@ -77,11 +109,19 @@ class CdmMetaCommand extends CConsoleCommand {
 		
 		foreach($records as $record) {
 			$metadata = $this->getCdmInfo($record, $record['id']);
-			if(is_array($metadata) && $this->updateCdm($metadata)) {
+			
+			if(!empty($metadata['Title']) && $this->updateCdm($metadata)) {
 				echo $record['id'] . " updated\r\n";
 			} else {
+				$this->removeRecord(array($record['id']));
 				echo "Couldn't update " . $record['id'] . "\r\n";
 			}
 		}
 	}
 }
+
+/*
+SELECT id, cdm_records.Url FROM cdm_records
+INNER JOIN (SELECT Url FROM cdm_records
+GROUP BY Url HAVING count(id) > 1) dup ON cdm_records.Url = dup.Url
+*/

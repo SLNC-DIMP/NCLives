@@ -15,9 +15,6 @@ border: 5px solid #E0E0E0;
 display:inline;
 width: 275px;
 background-color: #E0E0E0;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-border-radius: 5px;
 }
 
 #viewOptions, #viewItem {
@@ -30,12 +27,15 @@ display: inline;
 padding: 5px 0 5px 15px;
 }
 
-table {
-text-align:justify;
-border: 1px solid #CCC;
+#viewItem, table {
 -moz-border-radius: 5px;
 -webkit-border-radius: 5px;
 border-radius: 5px;
+}
+
+table {
+text-align:justify;
+border: 1px solid #CCC;
 }
 
 .gif_format {
