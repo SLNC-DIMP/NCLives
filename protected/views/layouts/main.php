@@ -27,12 +27,12 @@
 					'items'=>array(
 						array('label'=>'Home', 'url'=>array('/site/index')),
 						array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-						array('label'=>'Browse', 'url'=>array('/search/browse')),
+					//	array('label'=>'Browse', 'url'=>array('/search/browse')),
 						array('label'=>'Contact', 'url'=>array('/site/contact')),
 						array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 						array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 					)
-				), '<form class="navbar-search pull-left" action="solr/search">
+				), '<form class="navbar-search pull-left" action="' . Yii::app()->baseUrl .'/lucene/search">
 					<input type="text" class="search-query span2" placeholder="Search">
 					<button type="submit" class="btn-small" label="submit"><i class="icon-search"></i>Search</button></form>',
 			), 

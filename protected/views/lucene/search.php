@@ -31,7 +31,7 @@ $form = $this->beginWidget('bootstrap.widgets.BootActiveForm', array(
 <h1>Search Results for: "<?php echo CHtml::encode($term); ?>"</h1>
 
 <?php 
-  if(!empty($results)): 
+  if($count > 0): 
 		$this->widget('bootstrap.widgets.BootListView', array(
 		'dataProvider'=>$results,
 		'itemView'=>'_view',
