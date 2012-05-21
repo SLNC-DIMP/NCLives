@@ -32,6 +32,12 @@ abstract class OAI extends CConsoleCommand {
 			->execute($values);
 	}
 	
+	protected function emptyTable($table) {
+		$sql = "TRUNCATE TABLE $table";
+		Yii::app()->db->createCommand($sql)
+			->execute();
+	}
+	
 	protected function identfierBase($identifier) {
 		return substr_replace(strrchr($identifier, ':'), '', 0, 1);
 	}
