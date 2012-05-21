@@ -9,30 +9,13 @@ $css->registerCssFile(Yii::app()->baseUrl.'/css/item_view.css');
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Title')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->Title),array('view','id'=>$data->id)); ?>
 	<br />
-<!--	
-    <b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
+ 
+	<b><?php //echo CHtml::encode($data->getAttributeLabel('url_link')); ?>:</b>
+	<?php ////echo CHtml::encode($data->url_link); ?>
 	<br />
 
-	
-	<b><?php echo CHtml::encode($data->getAttributeLabel('identifier')); ?>:</b>
-	<?php echo CHtml::encode($data->identifier); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('base_id')); ?>:</b>
-	<?php echo CHtml::encode($data->base_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('fulltext_available')); ?>:</b>
-	<?php echo CHtml::encode($data->fulltext_available); ?>
-	<br />
--->
-	<b><?php echo CHtml::encode($data->getAttributeLabel('url_link')); ?>:</b>
-	<?php echo CHtml::encode($data->url_link); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('datestamp')); ?>:</b>
-	<?php echo CHtml::encode($data->datestamp); ?>
+	<b><?php //echo CHtml::encode($data->getAttributeLabel('datestamp')); ?>:</b>
+	<?php //echo CHtml::encode($data->datestamp); ?>
 	<br />
  
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Volume')); ?>:</b>
@@ -70,12 +53,8 @@ $css->registerCssFile(Yii::app()->baseUrl.'/css/item_view.css');
 	<b><?php echo CHtml::encode($data->getAttributeLabel('MediaType')); ?>:</b>
 	<?php echo CHtml::encode($data->MediaType); ?>
 	<br />
-<!--
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Updatedate')); ?>:</b>
-	<?php  echo CHtml::encode($data->Updatedate); ?>
-	<br />
--->
-	<b>More Info: <a href="<?php echo $data->url_link ?>">Click here to view item</a></b>
+    
+	<b>More Info: <a href="<?php // echo $data->url_link ?>">Click here to view item</a></b>
     <br />
 	<br />
     <span id="viewOptions"><strong>Viewing Options:</strong></span>

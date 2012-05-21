@@ -1,17 +1,26 @@
 <?php
 class SolrController extends Controller {
 	public function actionSearch() {
-		if(($term = trim(Yii::app()->getRequest()->getParam('q'))) !== '') {
+		if(($term = trim($_GET['q'])) !== '') {
 			$criteria = new ASolrCriteria;
 			$criteria->setLimit(5000);
 			
-			$term = strip_tags(trim($term));
+			$term = filter_var($term, FILTER_SANITIZE_STRING);
 			
-			$results = ASolrDocument::model()->findAllByAttributes(array("Title" => $term, 'Contributor' => $term),  $criteria);
+			$data = ASolrDocument::model()->findAllByAttributes(array("Title" => $term, 'Contributor' => $term),  $criteria);
+			
+			$results=new CArrayDataProvider($data, array(
+				'id'=>'search',
+				'pagination'=>array(
+					'pageSize'=>10,
+				),
+			));
+			
+			$item_count = $results->itemCount;
 		} else {
-			$results = 0;
+			$results = array();
 		}
 		
-		$this->render('search', compact('results', 'term'));
+		$this->render('search', compact('results', 'term', 'item_count'));
 	}
 }

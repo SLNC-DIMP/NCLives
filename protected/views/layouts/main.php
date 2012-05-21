@@ -32,7 +32,9 @@
 						array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 						array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 					)
-				), '<form class="navbar-search pull-left" action=""><input type="text" class="search-query span2" placeholder="Search"></form>',
+				), '<form class="navbar-search pull-left" action="solr/search">
+					<input type="text" class="search-query span2" placeholder="Search">
+					<button type="submit" class="btn-small" label="submit"><i class="icon-search"></i>Search</button></form>',
 			), 
 		)); ?>
 	</div><!-- mainmenu -->
