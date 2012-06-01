@@ -23,7 +23,7 @@ $form = $this->beginWidget('bootstrap.widgets.BootActiveForm', array(
 		'size'=>'large', 
 		'icon'=>'search', 
 		'label'=>'Search', 
-		'htmlOptions' => array('value' => 'search')
+		'htmlOptions' => array('value'=>'search')
 	  )); ?>
 </form>
 <?php $this->endWidget(); ?>
@@ -42,5 +42,5 @@ $form = $this->beginWidget('bootstrap.widgets.BootActiveForm', array(
 	<div class="alert alert-error">
 		<strong>There are no entries matching your search.</strong>
 	</div>
-    <?php
+<?php
 endif; ?>
