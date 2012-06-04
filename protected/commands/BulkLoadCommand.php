@@ -38,6 +38,37 @@ class BulkLoadCommand extends CConsoleCommand {
 		return shell_exec(escapeshellcmd("chmod +x $this->_uploads_path/ias3upload.pl"));
 	}
 	
+	/**
+	* File name should always be the 3rd field in a file line.
+	*/
+	protected function readMetadata() {
+		$file_list = array();
+		$meta_files = file($this->_uploads_path . '/metadata.csv');
+		
+		foreach($meta_files as $meta_file) {
+			$file_name = explode(',', $meta_file);
+			$file_list[] = $file_name[2];
+		}
+		
+		return $file_list;
+	}
+	
+	protected function compareFileNamesMeta(array $db_files, array $file_names) {
+		foreach($file_names as $disk_file) {
+			if(!in_array($disk_file, $db_files)) {
+				echo $disk_file . " is present in the metadata list but not on the filesystem.\n";
+			}
+		}
+	}
+	
+	protected function compareFileNamesDisk(array $db_files, array $file_names) {
+		foreach($db_files as $db_file) {
+			if(!in_array($db_file, $file_names)) {
+				echo $db_file . " is present on the filesytem but not in the metadata list.\n";
+			}
+		}
+	}
+	
 	public function actionDelete() {
 		$files = $this->getList();
 		if(empty($files)) { echo "There are no files to delete"; exit; }
@@ -54,14 +85,25 @@ class BulkLoadCommand extends CConsoleCommand {
 		$files = scandir($this->_uploads_path);
 		if(empty($files)) { echo "There are no files to load"; exit; }
 		
-		$this->exportKeys();
-		$this->perlLoad();
-		
+		$disk_files = array();
 		foreach($files as $file) {
-			if(preg_match('/pdf$/i', $file)) {
+			if(preg_match('/pdf$/i', $file) && !is_dir($file)) {
 				$this->setList($file);
-				echo $file . "\n";
+				$disk_files[] = $file;
 			}
+		}
+		
+		if(!empty($disk_files)) {
+			$meta_files = $this->readMetadata();
+			$this->compareFileNamesMeta($disk_files, $meta_files);
+			$this->compareFileNamesDisk($disk_files, $meta_files); 
+			
+			$this->exportKeys();
+			$this->perlLoad();
+			
+			$process_files = shell_exec(escapeshellcmd("perl $this->_uploads_path/ias3upload.pl"));
+			
+			echo $process_files;
 		}
 	}
 }

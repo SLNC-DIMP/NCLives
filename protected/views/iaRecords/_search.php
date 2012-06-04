@@ -21,7 +21,7 @@
 
 	<?php echo $form->textFieldRow($model,'Creator',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'Subject',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php echo $form->textFieldRow($model,'Subjects',array('class'=>'span5','maxlength'=>255)); ?>
 
 	<?php echo $form->textFieldRow($model,'Publisher',array('class'=>'span5','maxlength'=>255)); ?>
 

@@ -91,7 +91,7 @@ class IaMetaCommand extends CConsoleCommand {
 				'Title'         => $xml->title, 
 				'Volume'        => $xml->volume, 
 				'Creator'       => $xml->creator, 
-				'Subject'       => $this->format->commaReplace($subjects), 
+				'Subjects'       => $this->format->commaReplace($subjects), 
 				'Publisher'     => $xml->publisher, 
 				'Pub_Date'      => $xml->date, 
 				'Language'      => $xml->language, 

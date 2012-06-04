@@ -14,7 +14,7 @@
  * @property string $Title
  * @property string $Volume
  * @property string $Creator
- * @property string $Subject
+ * @property string $Subjects
  * @property string $Publisher
  * @property string $Pub_Date
  * @property string $Language
@@ -54,11 +54,11 @@ class IaRecords extends CActiveRecord
 			array('fulltext_available', 'required'),
 			array('fulltext_available', 'numerical', 'integerOnly'=>true),
 			array('identifier, datestamp, Updatedate', 'length', 'max'=>50),
-			array('base_id, url_link, Title, Volume, Creator, Subject, Publisher, Pub_Date, Language, Sponsor, Contributor', 'length', 'max'=>255),
+			array('base_id, url_link, Title, Volume, Creator, Subjects, Publisher, Pub_Date, Language, Sponsor, Contributor', 'length', 'max'=>255),
 			array('MediaType', 'length', 'max'=>25),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, identifier, base_id, fulltext_available, url_link, datestamp, Title, Volume, Creator, Subject, Publisher, Pub_Date, Language, Sponsor, Contributor, MediaType, Updatedate', 'safe', 'on'=>'search'),
+			array('id, identifier, base_id, fulltext_available, url_link, datestamp, Title, Volume, Creator, Subjects, Publisher, Pub_Date, Language, Sponsor, Contributor, MediaType, Updatedate', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -89,7 +89,7 @@ class IaRecords extends CActiveRecord
 			'Title' => 'Title',
 			'Volume' => 'Volume',
 			'Creator' => 'Creator',
-			'Subject' => 'Subject',
+			'Subjects' => 'Subjects',
 			'Publisher' => 'Publisher',
 			'Pub_Date' => 'Pub Date',
 			'Language' => 'Language',
@@ -121,7 +121,7 @@ class IaRecords extends CActiveRecord
 		$criteria->compare('Title',$this->Title,true);
 		$criteria->compare('Volume',$this->Volume,true);
 		$criteria->compare('Creator',$this->Creator,true);
-		$criteria->compare('Subject',$this->Subject,true);
+		$criteria->compare('Subjects',$this->Subjects,true);
 		$criteria->compare('Publisher',$this->Publisher,true);
 		$criteria->compare('Pub_Date',$this->Pub_Date,true);
 		$criteria->compare('Language',$this->Language,true);

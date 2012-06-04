@@ -24,22 +24,20 @@ class LuceneCommand extends CConsoleCommand {
             $doc = new Zend_Search_Lucene_Document();
 			
 			$doc->addField(Zend_Search_Lucene_Field::UnIndexed('page_id',
-                                          CHtml::encode($page['id']), 'utf-8')
-            );
+                                          CHtml::encode($page['id']), 'utf-8'));
 
 			$doc->addField(Zend_Search_Lucene_Field::UnIndexed('identifier',
-                                                   CHtml::encode($page['identifier']), 'utf-8')
-			);
+                                                   CHtml::encode($page['identifier']), 'utf-8'));
+												   
 			$doc->addField(Zend_Search_Lucene_Field::UnIndexed('base_id',
-                                                   CHtml::encode($page['base_id']), 'utf-8')
-			);
+                                                   CHtml::encode($page['base_id']), 'utf-8'));
 			$doc->addField(Zend_Search_Lucene_Field::UnIndexed('image_path',
-                                                   CHtml::encode($page['image_path']), 'utf-8')
-			);
+                                                   CHtml::encode($page['image_path']), 'utf-8'));
+			
 			$doc->addField(Zend_Search_Lucene_Field::UnIndexed('url_link',
-                                                   CHtml::encode($page['url_link']), 'utf-8')
-			);
-            $doc->addField(Zend_Search_Lucene_Field::Text('Title',
+                                                   CHtml::encode($page['url_link']), 'utf-8'));
+            
+			$doc->addField(Zend_Search_Lucene_Field::Text('Title',
                                           CHtml::encode($page['Title']), 'utf-8')
             );
             $doc->addField(Zend_Search_Lucene_Field::UnIndexed('Volume',
@@ -48,8 +46,8 @@ class LuceneCommand extends CConsoleCommand {
             $doc->addField(Zend_Search_Lucene_Field::Text('Creator',
                                           CHtml::encode($page['Creator']), 'utf-8')
             );
-			$doc->addField(Zend_Search_Lucene_Field::Text('Subject',
-                                          CHtml::encode($page['Subject']), 'utf-8')
+			$doc->addField(Zend_Search_Lucene_Field::Text('Subjects',
+                                          CHtml::encode($page['Subjects']), 'utf-8')
             );
 			$doc->addField(Zend_Search_Lucene_Field::UnIndexed('Publisher',
                                           CHtml::encode($page['Publisher']), 'utf-8')

@@ -43,8 +43,8 @@ $css->registerCssFile(Yii::app()->baseUrl.'/css/item_view.css');
 	<?php echo CHtml::encode($data->Creator); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Subject')); ?>:</b>
-	<?php echo CHtml::encode($data->Subject); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Subjects')); ?>:</b>
+	<?php echo CHtml::encode($data->Subjects); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Publisher')); ?>:</b>
