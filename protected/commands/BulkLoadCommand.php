@@ -41,9 +41,10 @@ class BulkLoadCommand extends CConsoleCommand {
 	}
 	
 	/**
-	* File name should always be the 3rd field in a file line.
+	* File name should always be the 2nd field in a file line.
 	*/
 	protected function readMetadata() {
+		ini_set("auto_detect_line_endings", true); // added as Mac line endings freak out Windows and Linux
 		$file_list = array();
 		$meta_files = file($this->_uploads_path . '/metadata.csv');
 		unset($meta_files[0]);
@@ -52,22 +53,22 @@ class BulkLoadCommand extends CConsoleCommand {
 			$file_name = explode(',', $meta_file);
 			$file_list[] = $file_name[1];
 		}
-
+		
 		return $file_list;
 	}
 	
-	protected function compareFileNamesDisk(array $db_files, array $file_names) {
+	protected function compareFileNamesDisk(array $meta_files, array $file_names) {
 		foreach($file_names as $key => $disk_file) {
-			if(!in_array($disk_file, $db_files) && !is_dir($disk_file)) {
-			//	echo $disk_file . " is present on the filesystem list but not in the metadata.\n";
+			if(!in_array($disk_file, $meta_files) && !is_dir($meta_file)) {
+				echo $disk_file . " is present on the filesystem list but not in the metadata.\n";
 			}
 		}
 	}
 	
-	protected function compareFileNamesMeta(array $db_files, array $file_names) {
-		foreach($db_files as $key => $db_file) {
-			if(!in_array($db_file, $file_names) && !is_dir($db_file)) {
-				
+	protected function compareFileNamesMeta(array $meta_files, array $file_names) {
+		foreach($meta_files as $key => $meta_file) {
+			if(!in_array($meta_file, $file_names) && !is_dir($meta_file)) {
+				echo $disk_file . " is present in the metadata list but not on the filesystem.\n";
 			}
 		}
 		if($error > 0) { echo "Please correct the error(s) above and try again.\n"; exit; }
@@ -97,11 +98,10 @@ class BulkLoadCommand extends CConsoleCommand {
 		
 		if(!empty($files)) {
 			$meta_files = $this->readMetadata();
-		//	$this->compareFileNamesMeta($meta_files, $files);
-		//	$this->compareFileNamesDisk($meta_files, $files); 
+			$this->compareFileNamesMeta($meta_files, $files);
+			$this->compareFileNamesDisk($meta_files, $files); 
 			
 			$this->perlLoad();
-			
 			$process_files = shell_exec(escapeshellcmd("perl $this->_uploads_path/ias3upload.pl -k " . $this->loadKeys() . " -l $this->_uploads_path/metadata.csv"));
 			
 			echo $process_files;
