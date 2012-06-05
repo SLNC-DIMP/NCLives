@@ -1,17 +1,23 @@
 <?php
 class BulkLoadCommand extends CConsoleCommand {
-	private $_uploads_path = '';
+	private $_uploads_path = '/home4/statelib/public_html/ajaxplorer/data/files';
 	
 	protected function setList($file) {
 		$sql = "INSERT INTO upload(file) VALUES(?)";
 		Yii::app()->db->createCommand($sql)
-			->execute(array_values($file));		
+			->execute(array($file));		
 	}
 	
 	protected function updateList($file_id) {
 		$sql = "UPDATE upload SET deleted = ? WHERE id = ?";
 		Yii::app()->db->createCommand($sql)
-			->execute(array_values(1, $file_id));	
+			->execute(array(1, $file_id));	
+	}
+	
+	protected function updateList2($file_name) {
+		$sql = "UPDATE upload SET missing = ? WHERE filename = ?";
+		Yii::app()->db->createCommand($sql)
+			->execute(array(1, $file_name));	
 	}
 	
 	protected function getList() {
@@ -22,16 +28,12 @@ class BulkLoadCommand extends CConsoleCommand {
 		return $files;
 	}
 	
-	protected function getKeys($path) {
+	protected function getKeys() {
 		return file('/home4/statelib/keys.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 	}
 	
 	protected function loadKeys() {
 		return end($this->getKeys());
-	}
-	
-	protected function exportKeys() {
-		return shell_exec(escapeshellcmd('export ' . $this->loadKeys()));
 	}
 	
 	protected function perlLoad() {
@@ -44,29 +46,37 @@ class BulkLoadCommand extends CConsoleCommand {
 	protected function readMetadata() {
 		$file_list = array();
 		$meta_files = file($this->_uploads_path . '/metadata.csv');
+		unset($meta_files[0]);
 		
 		foreach($meta_files as $meta_file) {
 			$file_name = explode(',', $meta_file);
-			$file_list[] = $file_name[2];
+			$file_list[] = $file_name[1];
 		}
-		
+
 		return $file_list;
 	}
 	
-	protected function compareFileNamesMeta(array $db_files, array $file_names) {
-		foreach($file_names as $disk_file) {
-			if(!in_array($disk_file, $db_files)) {
-				echo $disk_file . " is present in the metadata list but not on the filesystem.\n";
+	protected function compareFileNamesDisk(array $db_files, array $file_names) {
+		foreach($file_names as $key => $disk_file) {
+			if(!in_array($disk_file, $db_files) && !is_dir($disk_file)) {
+			//	echo $disk_file . " is present on the filesystem list but not in the metadata.\n";
 			}
 		}
 	}
 	
-	protected function compareFileNamesDisk(array $db_files, array $file_names) {
-		foreach($db_files as $db_file) {
-			if(!in_array($db_file, $file_names)) {
-				echo $db_file . " is present on the filesytem but not in the metadata list.\n";
+	protected function compareFileNamesMeta(array $db_files, array $file_names) {
+		foreach($db_files as $key => $db_file) {
+			if(!in_array($db_file, $file_names) && !is_dir($db_file)) {
+				
 			}
 		}
+		if($error > 0) { echo "Please correct the error(s) above and try again.\n"; exit; }
+	}
+	
+	protected function csvEdit() {
+		$fh = fopen($this->_uploads_path . '/metadata.csv', 'rw');
+		
+		fclose($fh);
 	}
 	
 	public function actionDelete() {
@@ -82,28 +92,19 @@ class BulkLoadCommand extends CConsoleCommand {
 	}
 	
 	public function actionLoad() {
-		$files = scandir($this->_uploads_path);
+		$files = preg_grep('/pdf$/i', scandir($this->_uploads_path));                    
 		if(empty($files)) { echo "There are no files to load"; exit; }
 		
-		$disk_files = array();
-		foreach($files as $file) {
-			if(preg_match('/pdf$/i', $file) && !is_dir($file)) {
-				$this->setList($file);
-				$disk_files[] = $file;
-			}
-		}
-		
-		if(!empty($disk_files)) {
+		if(!empty($files)) {
 			$meta_files = $this->readMetadata();
-			$this->compareFileNamesMeta($disk_files, $meta_files);
-			$this->compareFileNamesDisk($disk_files, $meta_files); 
+		//	$this->compareFileNamesMeta($meta_files, $files);
+		//	$this->compareFileNamesDisk($meta_files, $files); 
 			
-			$this->exportKeys();
 			$this->perlLoad();
 			
-			$process_files = shell_exec(escapeshellcmd("perl $this->_uploads_path/ias3upload.pl"));
+			$process_files = shell_exec(escapeshellcmd("perl $this->_uploads_path/ias3upload.pl -k " . $this->loadKeys() . " -l $this->_uploads_path/metadata.csv"));
 			
 			echo $process_files;
-		}
-	}
+		} 
+	} 
 }

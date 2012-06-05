@@ -33,7 +33,7 @@
 						array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 					)
 				), '<form class="navbar-search pull-left" action="' . Yii::app()->baseUrl .'/lucene/search">
-					<input type="text" class="search-query span2" placeholder="Search">
+					<input type="text" class="search-query span2" name="q" value="" placeholder="Search">
 					<button type="submit" class="btn-small" label="submit"><i class="icon-search"></i>Search</button></form>',
 			), 
 		)); ?>

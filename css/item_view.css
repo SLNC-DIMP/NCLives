@@ -42,3 +42,8 @@ border: 1px solid #CCC;
 float:left; 
 padding: 0 10px 10px 0;
 }
+
+/* keeps tables from letting footer jump up to the right */
+#yw0 {
+min-width: 800px;
+}

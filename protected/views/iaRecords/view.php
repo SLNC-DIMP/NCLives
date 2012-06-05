@@ -37,7 +37,7 @@ $this->menu=array(
 		'Title',
 		'Volume',
 		'Creator',
-		'Subject',
+		'Subjects',
 		'Publisher',
 		'Pub_Date',
 		'Language',
