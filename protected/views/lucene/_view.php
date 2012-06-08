@@ -6,9 +6,11 @@ $css->registerCssFile(Yii::app()->baseUrl.'/css/item_view.css');
 	<?php if($data->table == 'ia_records'):
 	     	 echo CHtml::image(Yii::app()->request->baseUrl . '/' . $data->image_path, $data->Title, array('class'=>'gif_format')); 
 			 $view = 'iaRecords';
+			 $url_link = $data->url_link;
 		  else:
 			  $url = explode('/', $data->base_id); 
 			  $view = 'cdmRecords';	  
+			  $url_link = $data->Url;
 	?>
 	<img style="float:left; padding: 0 10px 10px 0" src="http://cdm16062.contentdm.oclc.org/utils/getthumbnail/collection/<?php echo $url[0] . '/id/' . $url[1]; ?>" alt="<?php echo $data->Title; ?>">
 	<?php
@@ -17,22 +19,22 @@ $css->registerCssFile(Yii::app()->baseUrl.'/css/item_view.css');
     <br />
     
 	<b><?php echo CHtml::encode('Title'); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->Title),array($view . '/view','id'=>$data->page_id)); ?>
+	<?php echo CHtml::link($data->Title,array($view . '/view','id'=>$data->page_id)); ?>
 	<br />
  
 	<b><?php echo CHtml::encode('Url'); ?>:</b>
-	<?php echo CHtml::encode($data->url_link); ?>
+	<?php echo $url_link; ?>
 	<br />
 
 	<b><?php echo CHtml::encode('Creator'); ?>:</b>
-	<?php echo CHtml::encode($data->Creator); ?>
+	<?php echo $data->Creator; ?>
 	<br />
 
 	<b><?php echo CHtml::encode('Subjects'); ?>:</b>
-	<?php echo CHtml::encode($data->Subjects); ?>
+	<?php echo $data->Subjects; ?>
 	<br />
     
-	<b>More Info: <a href="<?php echo $data->url_link ?>">Click here to view item</a></b>
+	<b>More Info: <a href="<?php echo $url_link; ?>">Click here to view item</a></b>
     <br />
 	<br />
    

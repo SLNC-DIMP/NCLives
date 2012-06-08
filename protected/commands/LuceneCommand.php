@@ -41,6 +41,9 @@ class LuceneCommand extends CConsoleCommand {
 			
 			$doc->addField(Zend_Search_Lucene_Field::UnIndexed('url_link',
                                                    CHtml::encode($page['url_link']), 'utf-8'));
+			
+			$doc->addField(Zend_Search_Lucene_Field::UnIndexed('Url',
+                                                   CHtml::encode($page['Url']), 'utf-8'));
             
 			$doc->addField(Zend_Search_Lucene_Field::Text('Title',
                                           CHtml::encode($page['Title']), 'utf-8')
