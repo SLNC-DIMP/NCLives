@@ -112,7 +112,7 @@ class IaMetaCommand extends CConsoleCommand {
 	}
 	
 	/**
-	* Converts animated gif into a static png
+	* Converts IA animated gifs into a static png
 	* See comment by max lloyd http://mx.php.net/imagecreatefromgif
 	*/
 	protected function getGif($file, $base_id, $file_id) {
@@ -138,6 +138,9 @@ class IaMetaCommand extends CConsoleCommand {
 		}
 	}
 	
+	/**
+	* Grabs the full text for each pdf from the Internet Archive
+	*/
 	public function actionIaText() {
 		$texts = $this->getPaths('fulltext_available');
 		if(empty($texts)) { exit; }
@@ -154,6 +157,9 @@ class IaMetaCommand extends CConsoleCommand {
 		}
 	}
 	
+	/**
+	* Generates a png thumbnail from the animated gifs used by the Internet Archive.
+	*/
 	public function actionIaGif() {
 		$images = $this->getPaths('image_path');
 		if(empty($images)) { exit; }

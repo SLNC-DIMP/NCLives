@@ -17,4 +17,4 @@
 	 </form>
 	<?php $this->endWidget(); ?>
 <?php $this->endWidget(); ?>
-<h2 style="text-align:center"><a href='lucene/search?q="Civil+War"&yt0=search'>Search Civil War records</a></h2>
+<h2 style="text-align:center"><a href='lucene/search?q="Civil+War"&yt0=search'>Search for Civil War Records</a></h2>

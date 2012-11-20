@@ -4,6 +4,10 @@ Yii::import('application.commands.OAI');
 class IaOAICommand extends OAI {
 	private $ai_sets = array('ncgovdocs', 'asgii', 'statelibrarynorthcarolina');
 	
+	protected function urlLink($base_id) {
+		return 'http://archive.org/details/' . $base_id;
+	}
+	
 	protected function updateIdentifier(array $values) {
 		$sql = "UPDATE ia_records SET url_link = ? WHERE id = ?";
 		Yii::app()->db->createCommand($sql)
@@ -22,10 +26,6 @@ class IaOAICommand extends OAI {
 			$url = $this->base_ai_url . "verb=ListIdentifiers&set=collection:$set&metadataPrefix=oai_dc";
 			$this->getIdentifiers($url, 'ia_records'); // oai:archive.org:illustratedhandb00sepa
 		}		
-	}
-	
-	protected function urlLink($base_id) {
-		return 'http://archive.org/details/' . $base_id;
 	}
 	
 	/**

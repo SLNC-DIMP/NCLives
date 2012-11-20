@@ -28,7 +28,7 @@ $form = $this->beginWidget('bootstrap.widgets.BootActiveForm', array(
 </form>
 <?php $this->endWidget(); ?>
 
-<h1>Search Results for: "<?php echo CHtml::encode($term); ?>"</h1>
+<h1>Search Results for: (<?php echo CHtml::encode($term); ?>)</h1>
 
 <?php 
   if($count > 0): 

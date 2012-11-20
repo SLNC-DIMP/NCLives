@@ -5,7 +5,7 @@ class BulkLoadCommand extends CConsoleCommand {
 	/**
 	* Path to files to upload to IA
 	*/
-	private $_uploads_path = '/home4/statelib/public_html/ajaxplorer/data/files';
+	private $_uploads_path = '/home4/statelib/public_html/nclives_admin/data/files';
 	protected $upload;
 	
 	public function __construct() {

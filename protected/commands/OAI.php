@@ -111,7 +111,7 @@ abstract class OAI extends CConsoleCommand {
 			$fh = fopen('xml_errors.csv', 'ab');
 			fputcsv($fh, array($request_url, $e->getMessage(), date('c')));
 			$presumed_url = $this->urlLink($base_id);
-			echo $presumed_url; exit;
+			//echo $presumed_url; exit;
 			$this->updateIdentifier(array($presumed_url, $db_id), $table);
 			fclose($fh);
 		}
